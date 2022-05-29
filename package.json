@@ -1,0 +1,65 @@
+{
+  "name": "tiny-dancer",
+  "version": "1.0.0",
+  "description": "An electron wrapper for TinyMCE Editor",
+  "main": "main.js",
+  "repository": "https://github.com/sparshy/Tiny-Dancer",
+  "keywords": [
+    "Electron",
+    "HTML",
+    "Editor"
+  ],
+  "author": "GitHub",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "js-beautify": "^1.6.8",
+    "relateurl": "^0.2.7",
+    "tinymce": "^4.5.3"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "dist": "^0.1.2",
+    "electron": "^9.2.1",
+    "js-beautify": "^1.6.8",
+    "tinymce": "~4.5.3"
+  },
+  "build": {
+    "appId": "Electron TinyMCE",
+    "mac": {
+      "category": "html editor"
+    },
+    "win": {},
+    "asar": true
+  },
+  "scripts": {
+    "pack": "build --dir",
+    "dist": "build",
+    "dev": "electron .",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "el_tiny_editor"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "linux"
+          ]
+        }
+      ]
+    }
+  }
+}
