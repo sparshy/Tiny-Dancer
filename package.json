@@ -11,10 +11,15 @@
   ],
   "author": "GitHub",
   "dependencies": {
+    "@electron/remote": "^2.0.8",
+    "@tinymce/tinymce-svelte": "^1.0.0",
+    "concurrently": "^7.2.1",
+    "electron-reload": "^2.0.0-alpha.1",
     "electron-squirrel-startup": "^1.0.0",
-    "js-beautify": "^1.6.8",
+    "js-beautify": "^1.14.3",
     "relateurl": "^0.2.7",
-    "tinymce": "^4.5.3"
+    "sirv-cli": "^2.0.2",
+    "tinymce": "^6.0.3"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.63",
@@ -22,10 +27,17 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.63",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
     "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "dist": "^0.1.2",
-    "electron": "^9.2.1",
-    "js-beautify": "^1.6.8",
-    "tinymce": "~4.5.3"
+    "electron": "^19.0.1",
+    "rollup": "^2.75.3",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "svelte": "^3.48.0",
+    "tinymce": "^6.0.3"
   },
   "build": {
     "appId": "Electron TinyMCE",
@@ -39,7 +51,9 @@
     "pack": "build --dir",
     "dist": "build",
     "dev": "electron .",
-    "start": "electron-forge start",
+    "dev1": "rollup -c -w",
+    "svelte-start": "sirv public --no-clear",
+    "start": "concurrently \"npm:dev1\" \"npm:dev\"",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
@@ -50,7 +64,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "el_tiny_editor"
+            "name": "tiny-dancer"
           }
         },
         {

@@ -1,6 +1,6 @@
 # Edit HTML and text files
 
-This is an electron wrapper for Tiny MCE forked from https://github.com/bmaranville/el-tiny-editor.
+This is an electron wrapper for Tiny MCE.
 
 # Build Instructions
 - `npm install`
