@@ -1,7 +1,26 @@
 import App from './App.svelte';
 
-var app = new App({
-	target: document.getElementById('tiny-mce-holder')
-});
+const btn = document.getElementById('btn')
+const filePathElement = document.getElementById('filePath')
 
-export default app;
+btn.addEventListener('click', async () => {
+    const filePath = await window.electronAPI.openFile()
+    filePathElement.innerText = filePath
+	let data = window.electronAPI.fs.readFileSync(filePath, {encoding: 'utf8'})
+
+	new App({
+		target: document.getElementById('tiny-mce-holder'),
+		props : {value: data}
+	});
+
+})
+
+
+
+// var app = new App({
+// 	target: document.getElementById('tiny-mce-holder'),
+// 	props : {value: 'data'}
+// });
+
+// export default app;
+
