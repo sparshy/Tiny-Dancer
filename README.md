@@ -2,6 +2,9 @@
 
 This is an electron wrapper for Tiny MCE.
 
+# Develop
+- `npm run start`
+
 # Build Instructions
 - `npm install`
 - `npm run make`

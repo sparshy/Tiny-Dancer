@@ -8,13 +8,24 @@
 
 	<link rel='icon' type='image/png' href='./favicon.png'>
 	<link rel='stylesheet' href='./global.css'>
-	<link rel='stylesheet' href='./build/bundle.css'>
-
+	<!-- <link rel='stylesheet' href='./build/bundle.css'> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self';"> -->
 	<script defer src='./build/bundle.js'></script>
 </head>
 
 <body>
-	<div id="svelte-app"> </div>
-	<script src="../renderer.js"></script>
+
+
+	<div id="svelte-app">
+		<div id="sidebar"></div>
+		<div id="top-bar">
+			<button type="button" id="btn">Open a File</button>
+			File path: <strong id="filePath"></strong>
+		</div>
+		<div id="tiny-mce-holder">
+		</div>
+	</div>
+
+	<script src="../renderer1.js"></script>
 </body>
 </html>
